@@ -12,15 +12,49 @@
                 <property name="margin-end">12</property>
                 <property name="spacing">6</property>
                 <child>
-                    <object class="GtkLabel" id="wireguard_conf">
-                        <property name="label">wireguard_conf</property>
+                    <object class="GtkBox">
+                        <property name="orientation">horizontal</property>
+                        <property name="margin-bottom">2</property>
+                        <property name="margin-start">12</property>
+                        <property name="margin-end">12</property>
+                        <property name="valign">GTK_ALIGN_END</property>
                         <property name="halign">GTK_ALIGN_START</property>
+                        <property name="spacing">10</property>
+                        <property name="vexpand">false</property>
+                        <child>
+                            <object class="GtkLabel">
+                                <property name="label">Config File: </property>
+                            </object>
+                        </child>
+                        <child>
+                            <object class="GtkLabel" id="wireguard_conf">
+                                <property name="label"></property>
+                                <property name="halign">GTK_ALIGN_START</property>
+                            </object>
+                        </child>
                     </object>
                 </child>
                 <child>
-                    <object class="GtkLabel" id="wireguard_ip_addr">
-                        <property name="label">ip address</property>
+                    <object class="GtkBox">
+                        <property name="orientation">horizontal</property>
+                        <property name="margin-bottom">2</property>
+                        <property name="margin-start">12</property>
+                        <property name="margin-end">12</property>
+                        <property name="valign">GTK_ALIGN_END</property>
                         <property name="halign">GTK_ALIGN_START</property>
+                        <property name="spacing">10</property>
+                        <property name="vexpand">false</property>
+                        <child>
+                            <object class="GtkLabel">
+                                <property name="label">IP Address: </property>
+                            </object>
+                        </child>
+                        <child>
+                            <object class="GtkLabel" id="wireguard_ip_addr">
+                                <property name="label">0.0.0.0</property>
+                                <property name="halign">GTK_ALIGN_START</property>
+                            </object>
+                        </child>
                     </object>
                 </child>
                 <child>

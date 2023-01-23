@@ -43,10 +43,10 @@ impl Window {
             wireguard_conf_label.set_text(&interface);
         } else {
             app::disconnect_wg();
-            self.imp().reconnect_button.set_label("Connect");
+            self.imp().connect_disconnect_button.set_label("Connect");
             self.imp().connected.set(false);
             let wireguard_conf_label = &self.imp().wireguard_conf;
-            wireguard_conf_label.set_text("Disconnected");
+            wireguard_conf_label.set_text("");
         }
     }
 

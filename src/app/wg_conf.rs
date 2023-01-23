@@ -63,7 +63,6 @@ fn compare_interfaces(interfaces: Vec<String>, files: Vec<String>) -> String {
   for i in interfaces.clone() {
     for f in files.clone() {
       if i == f { 
-        println!("{} {}", i.clone(), f.clone());     
         string_buffer = f.clone();
       }
     }
