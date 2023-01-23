@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+    <template class="mobile_wireguard_app" parent="GtkApplicationWindow">
+        <property name="width-request">360</property>
+        <property name="title" translatable="yes">Mobile Wireguard App</property>
+        <child>
+            <object class="GtkBox">
+                <property name="orientation">vertical</property>
+                <property name="margin-top">12</property>
+                <property name="margin-bottom">12</property>
+                <property name="margin-start">12</property>
+                <property name="margin-end">12</property>
+                <property name="spacing">6</property>
+                <child>
+                    <object class="GtkLabel" id="wireguard_conf">
+                        <property name="label">wireguard_conf</property>
+                        <property name="halign">GTK_ALIGN_START</property>
+                    </object>
+                </child>
+                <child>
+                    <object class="GtkLabel" id="wireguard_ip_addr">
+                        <property name="label">ip address</property>
+                        <property name="halign">GTK_ALIGN_START</property>
+                    </object>
+                </child>
+                <child>
+                    <object class="GtkBox">
+                        <property name="orientation">horizontal</property>
+                        <property name="margin-bottom">12</property>
+                        <property name="margin-start">12</property>
+                        <property name="margin-end">12</property>
+                        <property name="valign">GTK_ALIGN_END</property>
+                        <property name="halign">GTK_ALIGN_CENTER</property>
+                        <property name="spacing">10</property>
+                        <property name="vexpand">true</property>
+                        <child>
+                            <object class="GtkButton" id="connect_disconnect_button">
+                                <property name="label">Connect</property>
+                                <property name="valign">GTK_ALIGN_END</property>
+                                <property name="halign">GTK_ALIGN_CENTER</property>
+                            </object>
+                        </child>
+
+                        <child>
+                            <object class="GtkButton" id="reconnect_button">
+                                <property name="receives-default">1</property>
+                                <property name="icon-name">view-refresh-symbolic</property>
+                                <property name="valign">GTK_ALIGN_END</property>
+                                <property name="halign">GTK_ALIGN_CENTER</property>
+                            </object>
+                        </child>
+                    </object>
+                </child>
+            </object>
+        </child>
+    </template>
+</interface>
