@@ -5,7 +5,8 @@ use crate::app;
 use glib::{clone, Object};
 use gtk::prelude::*;
 use gtk::subclass::prelude::*;
-use gtk::{gio, glib, Application};
+use gtk::{gio, glib};
+use adw::Application;
 
 glib::wrapper! {
     pub struct Window(ObjectSubclass<imp::Window>)
@@ -15,7 +16,7 @@ glib::wrapper! {
 }
 
 impl Window {
-    pub fn new(app: &Application) -> Self {
+    pub fn new(app: &adw::Application) -> Self {
         Object::builder().property("application", app).build()
     }
 

@@ -2,7 +2,7 @@ mod window;
 mod app;
 
 use gtk::prelude::*;
-use gtk::{gio, Application};
+use gtk::{gio};
 use window::Window;
 
 fn main() {
@@ -11,7 +11,7 @@ fn main() {
         .expect("Failed to register resources.");
 
     // Create a new application
-    let app = Application::builder()
+    let app = adw::Application::builder()
         .application_id("org.kosmosghost.mobilewireguardapp")
         .build();
 
@@ -22,7 +22,7 @@ fn main() {
     app.run();
 }
 
-fn build_ui(app: &Application) {
+fn build_ui(app: &adw::Application) {
     // Create a new custom window and show it
     let window = Window::new(app);
     window.present();
