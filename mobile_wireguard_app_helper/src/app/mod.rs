@@ -8,9 +8,10 @@ pub fn connect_wg() -> String {
     interface
 }
 
-pub fn disconnect_wg() {
+pub fn disconnect_wg() -> String {
     let interface = wg_conf::get_interface();
     wg_quick::run_wq_quick_down(interface);
+    String::from("disconnected")
 }
 
 pub fn refresh_wg() -> String {

@@ -17,17 +17,7 @@ fn generate_random_number(num: usize) -> usize {
 pub fn get_interface() -> String {
   let files = get_files();
   let interfaces = get_interfaces();
-  /*
-  See compare_interfaces()
-
-  let interface = match compare_interfaces(interfaces, files) {
-    Some(x) => x,
-    None() => panic!("Can't find matching interfaces!"),
-  };
-  */
-  let interface = compare_interfaces(interfaces, files);
-
-  interface
+  compare_interfaces(interfaces, files)
 }
 
 fn get_files() -> Vec<String> {
@@ -52,12 +42,6 @@ fn get_interfaces() -> Vec<String> {
   interfaces
 }
 
-/*
-For some reason, which I'll never know the logic isn't working properly and for the sake
-of my sanity I just gave up. I believe it is a bug in the rust compiler since it's a simple if /else
-statement which is acting as both true and false at the same time.
-This should return an Option<T> in the future.
-*/
 fn compare_interfaces(interfaces: Vec<String>, files: Vec<String>) -> String {
   let mut string_buffer: String = String::new();
   for i in interfaces.clone() {

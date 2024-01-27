@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Version=1.0
+Type=Application
+Terminal=false
+Exec=/bin/mobile_wireguard_app
+Name=Mobile Wireguard!
+Icon=/usr/share/icons/kg/mobile_wireguard_app.svg

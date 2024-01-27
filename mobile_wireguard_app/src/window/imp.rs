@@ -41,7 +41,7 @@ impl ObjectImpl for Window {
 
         let obj = self.obj();
         obj.setup_callbacks();
-        self.connected.set(false);
+        obj.setup_connect_button();
     }
 }
 

@@ -1,5 +1,7 @@
 mod imp;
 
+use std::process::{Command, Stdio};
+
 use crate::app;
 
 use glib::{clone, Object};
@@ -34,16 +36,31 @@ impl Window {
             }));
     }
 
+    fn setup_connect_button(&self) {
+        let mut string_buffer = String::new();
+        let connection = app::check_connection();
+        match connection {
+            Some(x) => {
+                self.imp().connected.set(true);
+                self.imp().connect_disconnect_button.set_label("Disconnect");
+                self.imp().wireguard_conf.set_text(&x);
+            },
+            None => (),
+        }
+    }
+
     fn connect_disconnect_callback(&self) {
         if self.imp().connected.get() == false {
-            let interface = app::connect_wg();
+            let interface = Command::new("mobile_wireguard_app_helper").arg("connect").output().unwrap();
+
             let button = &self.imp().connect_disconnect_button;
             button.set_label("Disconnect");
             self.imp().connected.set(true);
             let wireguard_conf_label = &self.imp().wireguard_conf;
-            wireguard_conf_label.set_text(&interface);
+            let buffer = String::from_utf8(interface.stdout).unwrap();
+            wireguard_conf_label.set_text(&buffer.as_str());
         } else {
-            app::disconnect_wg();
+            let _interface = Command::new("mobile_wireguard_app_helper").arg("disconnect").output().unwrap();
             self.imp().connect_disconnect_button.set_label("Connect");
             self.imp().connected.set(false);
             let wireguard_conf_label = &self.imp().wireguard_conf;
@@ -52,8 +69,9 @@ impl Window {
     }
 
     fn reconnect_callback(&self) {
-        let interface = app::refresh_wg();
+        let interface = Command::new("mobile_wireguard_app_helper").arg("refresh").output().unwrap();
         let wireguard_conf_label = &self.imp().wireguard_conf;
-        wireguard_conf_label.set_text(&interface);
+        let buffer = String::from_utf8(interface.stdout).unwrap();
+        wireguard_conf_label.set_text(&buffer);
     }
 }
